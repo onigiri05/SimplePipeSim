@@ -89,7 +89,7 @@
   ],
   "config": {
     "prog": "msort",
-    "elf_dir": "/home/angelliu/.cache/simplepipesim-target/riscv32im-unknown-none-elf/debug",
+    "elf_dir": "/home/yingunix/.cache/simplepipesim-target/riscv32im-unknown-none-elf/debug",
     "l1i_size": 2048,
     "l1i_block": 32,
     "l1i_ways": 4,
@@ -110,6 +110,6 @@
     "dram_trcd": 4,
     "dram_tcl": 4,
     "dram_trp": 4,
-    "stats_out": "/mnt/c/成大/SimplePipeSim/results/dram_workload_comparison/msort_dram.json"
+    "stats_out": "/home/yingunix/mnt/SimplePipeSim/results/dram_workload_comparison/msort_dram.json"
   }
 }

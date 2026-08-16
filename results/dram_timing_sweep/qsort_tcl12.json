@@ -1,25 +1,25 @@
 {
   "pipeline": {
-    "total_ticked_cycle": 124920,
+    "total_ticked_cycle": 126104,
     "inst_fetched": 68380,
     "inst_retire": 63871,
     "branch_inst_cnt": 12533,
     "branch_miss_cnt": 2624,
     "total_flush_cnt": 5248,
     "actual_flushed_inst_cnt": 4505,
-    "ipc": 0.5112952289465258,
+    "ipc": 0.5064946393453023,
     "branch_miss_rate": 0.20936727040612782
   },
   "l1i": {
     "name": "L1-I$",
-    "load_cnt": 94743,
+    "load_cnt": 94807,
     "store_cnt": 0,
     "load_miss_cnt": 4279,
     "store_miss_cnt": 0,
     "prefetch_issued_cnt": 0,
-    "load_miss_rate": 0.04516428654359689,
+    "load_miss_rate": 0.045133798137268345,
     "store_miss_rate": 0.0,
-    "overall_miss_rate": 0.04516428654359689
+    "overall_miss_rate": 0.045133798137268345
   },
   "l1d": {
     "name": "L1-D$",
@@ -50,8 +50,8 @@
     "row_buffer_hit_cnt": 148,
     "row_buffer_miss_cnt": 237,
     "row_conflict_cnt": 236,
-    "total_access_time_cycles": 5328,
-    "average_access_time_cycles": 13.838961038961038
+    "total_access_time_cycles": 6512,
+    "average_access_time_cycles": 16.914285714285715
   },
   "final_registers": [
     0,
@@ -89,7 +89,7 @@
   ],
   "config": {
     "prog": "qsort",
-    "elf_dir": "/home/angelliu/.cache/simplepipesim-target/riscv32im-unknown-none-elf/debug",
+    "elf_dir": "/home/yingunix/.cache/simplepipesim-target/riscv32im-unknown-none-elf/debug",
     "l1i_size": 2048,
     "l1i_block": 32,
     "l1i_ways": 4,
@@ -107,9 +107,9 @@
     "prefetcher": "null",
     "bp": "bimodal",
     "memory": "dram",
-    "dram_trcd": 12,
-    "dram_tcl": 4,
+    "dram_trcd": 4,
+    "dram_tcl": 12,
     "dram_trp": 4,
-    "stats_out": "/mnt/c/成大/SimplePipeSim/results/timing_sweep/qsort_trcd12.json"
+    "stats_out": "/home/yingunix/mnt/SimplePipeSim/results/dram_timing_sweep/qsort_tcl12.json"
   }
 }

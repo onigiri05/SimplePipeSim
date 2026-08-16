@@ -31,19 +31,22 @@ run_qsort tcl12 4 12 4
 run_qsort trp12 4 4 12
 ```
 
-每次執行會先顯示本次設定，再顯示 Pipeline、Cache 與 DRAM 統計。以 Baseline 為例：
+每次執行會先顯示本次設定、cargo run指令，再顯示 Pipeline、Cache 與 DRAM 統計。以 Baseline 為例：
 
 ```text
 === qsort_baseline: tRCD=4, tCL=4, tRP=4 ===
++ RUSTFLAGS=-Awarnings
++ cargo run --quiet --release -p simulator -- --prog qsort --elf-dir /home/yingunix/.cache/simplepipesim-target/riscv32im-unknown-none-elf/debug --memory dram --dram-trcd 4 --dram-tcl 4 --dram-trp 4 --stats-out /home/yingunix/mnt/SimplePipeSim/results/dram_timing_sweep/qsort_baseline.json
 Program: qsort
 Replacement policy: Fifo
 Branch predictor: Bimodal
 Backing memory: Dram
 Pipeline: cycles=123024 retired=63871 ipc=0.5192 branch_miss=0.2094
-  L1-I$ load_cnt=94455 load_miss=4279 ...
-  L1-D$ load_cnt=12960 load_miss=1039 ... store_miss=1623 ...
-  L2$   load_cnt=7313 load_miss=372 ... store_miss=2 ...
-wrote stats JSON to .../results/timing_sweep/qsort_baseline.json
+  L1-I$ load_cnt=94455 load_miss=4279 (0.0453)  store_cnt=0 store_miss=0 (0.0000)  overall_miss=0.0453
+  L1-D$ load_cnt=12960 load_miss=1039 (0.0802)  store_cnt=19189 store_miss=1623 (0.0846)  overall_miss=0.0828
+  L2$   load_cnt=7313 load_miss=372 (0.0509)  store_cnt=2002 store_miss=2 (0.0010)  overall_miss=0.0402
+wrote stats JSON to /home/yingunix/mnt/SimplePipeSim/results/dram_timing_sweep/qsort_baseline.json
++ set +x
     "total_ticked_cycle": 123024,
     "dram_access_cnt": 385,
     "cold_open_cnt": 1,
@@ -66,10 +69,10 @@ wrote stats JSON to .../results/timing_sweep/qsort_baseline.json
 結果位置：
 
 ```text
-results/timing_sweep/qsort_baseline.json
-results/timing_sweep/qsort_trcd12.json
-results/timing_sweep/qsort_tcl12.json
-results/timing_sweep/qsort_trp12.json
+results/dram_timing_sweep/qsort_baseline.json
+results/dram_timing_sweep/qsort_trcd12.json
+results/dram_timing_sweep/qsort_tcl12.json
+results/dram_timing_sweep/qsort_trp12.json
 ```
 
 | Case | tRCD | tCL | tRP | DRAM access cycles | Workload total cycles | 增加 cycles |
@@ -106,15 +109,18 @@ run_workload matmul
 
 ```text
 === qsort_dram: tRCD=4, tCL=4, tRP=4 ===
++ RUSTFLAGS=-Awarnings
++ cargo run --quiet --release -p simulator -- --prog qsort --elf-dir /home/yingunix/.cache/simplepipesim-target/riscv32im-unknown-none-elf/debug --memory dram --dram-trcd 4 --dram-tcl 4 --dram-trp 4 --stats-out /home/yingunix/mnt/SimplePipeSim/results/dram_workload_comparison/qsort_dram.json
 Program: qsort
 Replacement policy: Fifo
 Branch predictor: Bimodal
 Backing memory: Dram
 Pipeline: cycles=123024 retired=63871 ipc=0.5192 branch_miss=0.2094
-  L1-I$ load_cnt=94455 load_miss=4279 ...
-  L1-D$ load_cnt=12960 load_miss=1039 ... store_miss=1623 ...
-  L2$   load_cnt=7313 load_miss=372 ... store_miss=2 ...
-wrote stats JSON to .../results/dram_workload_comparison/qsort_dram.json
+  L1-I$ load_cnt=94455 load_miss=4279 (0.0453)  store_cnt=0 store_miss=0 (0.0000)  overall_miss=0.0453
+  L1-D$ load_cnt=12960 load_miss=1039 (0.0802)  store_cnt=19189 store_miss=1623 (0.0846)  overall_miss=0.0828
+  L2$   load_cnt=7313 load_miss=372 (0.0509)  store_cnt=2002 store_miss=2 (0.0010)  overall_miss=0.0402
+wrote stats JSON to /home/yingunix/mnt/SimplePipeSim/results/dram_workload_comparison/qsort_dram.json
++ set +x
     "total_ticked_cycle": 123024,
     "dram_access_cnt": 385,
     "cold_open_cnt": 1,

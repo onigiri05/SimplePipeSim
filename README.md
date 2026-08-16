@@ -187,6 +187,7 @@ visible.
 | `--prefetcher`           | `null`  | `null` or `next-line`. |
 | `--bp`                   | `bimodal` | Branch predictor: `dummy` or `bimodal`. |
 | `--memory`               | `simple-mem` | L2 backing memory: flat-latency `simple-mem` or row-buffer-aware `dram` with educational timing defaults. |
+|`--dram-trcd/-tcl/-trp`|`4 / 4 / 4`|Dram tRCD, tCL, tRP tick cycle. Only take effect with `--memory dram`|
 | `--stats-out`            | _(unset)_ | Path to write the JSON report. |
 
 ## Sweep scripts

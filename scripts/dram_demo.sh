@@ -20,9 +20,10 @@ run_dram_case() {
 
     mkdir -p "${output_dir}"
     echo "=== ${output_name}: tRCD=${trcd}, tCL=${tcl}, tRP=${trp} ==="
-
+    
     (
         cd "${DRAM_DEMO_ROOT}"
+        set -x
         RUSTFLAGS="-Awarnings" cargo run --quiet --release -p simulator -- \
             --prog "${prog}" \
             --elf-dir "${DRAM_DEMO_ELF_DIR}" \
@@ -31,8 +32,9 @@ run_dram_case() {
             --dram-tcl "${tcl}" \
             --dram-trp "${trp}" \
             --stats-out "${output_path}"
+        set +x
     )
-
+    
     grep -E 'total_ticked_cycle|dram_access_cnt|cold_open_cnt|row_buffer_hit_cnt|row_buffer_miss_cnt|row_conflict_cnt|total_access_time_cycles|average_access_time_cycles' "${output_path}"
 }
 
@@ -43,7 +45,7 @@ run_qsort() {
     local trp="$4"
 
     run_dram_case qsort "qsort_${name}" "${trcd}" "${tcl}" "${trp}" \
-        "${DRAM_DEMO_RESULTS_DIR}/timing_sweep"
+        "${DRAM_DEMO_RESULTS_DIR}/dram_timing_sweep"
 }
 
 run_workload() {
