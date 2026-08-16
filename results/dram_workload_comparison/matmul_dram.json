@@ -89,7 +89,7 @@
   ],
   "config": {
     "prog": "matmul",
-    "elf_dir": "/home/yingunix/.cache/simplepipesim-target/riscv32im-unknown-none-elf/debug",
+    "elf_dir": "/home/yingunix/mnt/SimplePipeSim/target/riscv32im-unknown-none-elf/debug",
     "l1i_size": 2048,
     "l1i_block": 32,
     "l1i_ways": 4,

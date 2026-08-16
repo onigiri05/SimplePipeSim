@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 # Source this file once, then invoke run_qsort or run_workload interactively.
-
+PROJECT_ROOT="$(pwd)"
 DRAM_DEMO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-DRAM_DEMO_TARGET_DIR="${CARGO_TARGET_DIR:-${HOME}/.cache/simplepipesim-target}"
+DRAM_DEMO_TARGET_DIR="${CARGO_TARGET_DIR:-${PROJECT_ROOT}/target}"
 DRAM_DEMO_ELF_DIR="${ELF_DIR:-${DRAM_DEMO_TARGET_DIR}/riscv32im-unknown-none-elf/debug}"
 DRAM_DEMO_RESULTS_DIR="${RESULTS_DIR:-${DRAM_DEMO_ROOT}/results}"
 

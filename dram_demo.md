@@ -36,7 +36,7 @@ run_qsort trp12 4 4 12
 ```text
 === qsort_baseline: tRCD=4, tCL=4, tRP=4 ===
 + RUSTFLAGS=-Awarnings
-+ cargo run --quiet --release -p simulator -- --prog qsort --elf-dir /home/yingunix/.cache/simplepipesim-target/riscv32im-unknown-none-elf/debug --memory dram --dram-trcd 4 --dram-tcl 4 --dram-trp 4 --stats-out /home/yingunix/mnt/SimplePipeSim/results/dram_timing_sweep/qsort_baseline.json
++ cargo run --quiet --release -p simulator -- --prog qsort --elf-dir /home/yingunix/mnt/SimplePipeSim/target/riscv32im-unknown-none-elf/debug --memory dram --dram-trcd 4 --dram-tcl 4 --dram-trp 4 --stats-out /home/yingunix/mnt/SimplePipeSim/results/dram_timing_sweep/qsort_baseline.json
 Program: qsort
 Replacement policy: Fifo
 Branch predictor: Bimodal
@@ -110,7 +110,7 @@ run_workload matmul
 ```text
 === qsort_dram: tRCD=4, tCL=4, tRP=4 ===
 + RUSTFLAGS=-Awarnings
-+ cargo run --quiet --release -p simulator -- --prog qsort --elf-dir /home/yingunix/.cache/simplepipesim-target/riscv32im-unknown-none-elf/debug --memory dram --dram-trcd 4 --dram-tcl 4 --dram-trp 4 --stats-out /home/yingunix/mnt/SimplePipeSim/results/dram_workload_comparison/qsort_dram.json
++ cargo run --quiet --release -p simulator -- --prog qsort --elf-dir /home/yingunix/mnt/SimplePipeSim/target/riscv32im-unknown-none-elf/debug --memory dram --dram-trcd 4 --dram-tcl 4 --dram-trp 4 --stats-out /home/yingunix/mnt/SimplePipeSim/results/dram_workload_comparison/qsort_dram.json
 Program: qsort
 Replacement policy: Fifo
 Branch predictor: Bimodal
